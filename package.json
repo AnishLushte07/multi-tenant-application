@@ -1,0 +1,35 @@
+{
+  "name": "multi-tenant-application",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "dependencies": {
+    "debug": "^2.6.9",
+    "dotenv": "^8.0.0",
+    "errorhandler": "^1.4.2",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.7",
+    "sequelize-cli": "^5.4.0",
+    "winston": "^2.2.0",
+    "winston-daily-rotate-file": "^3.10.0",
+    "winston-raven-sentry": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "engines": {
+    "node": "^8.0.0",
+    "npm": "^3.9.5"
+  },
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "clear-db": "sequelize db:drop; sequelize db:create",
+    "migrate": "sequelize --env common db:migrate",
+    "migrate:tenant1": "sequelize --options-path ./sequelizerc-tenant1.json --env tenant1 db:migrate",
+    "migrate:tenant2": "sequelize --options-path ./sequelizerc-tenant2.json --env tenant2 db:migrate",
+    "run-migration": "node run-migration.js"
+  },
+  "private": true
+}

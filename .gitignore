@@ -1,0 +1,11 @@
+node_modules
+.tmp
+.sass-cache
+.idea
+dist
+npm-debug.log
+coverage
+.jshintignore
+.jshintrc
+logs/*
+.env

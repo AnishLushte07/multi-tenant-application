@@ -1,0 +1,5 @@
+{
+    "config": "./server/config/sequelize.js",
+    "migrations-path": "./server/conn/sqldb/tenant-migrations",
+    "seeders-path": "./server/conn/sqldb/seeders"
+}
