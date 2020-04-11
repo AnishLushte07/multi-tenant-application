@@ -67,9 +67,12 @@ async function buildDynamicConnection(db) {
 }
 
 async function getConnection(slug) {
-  if (dynamicConnectionsMap) {
+  if (dynamicConnectionsMap && dynamicConnectionsMap[slug]) {
     return dynamicConnectionsMap[slug];
   }
+  await buildDynamicConnection(db);
+  return dynamicConnectionsMap[slug];
+  
 }
 
 module.exports = {
